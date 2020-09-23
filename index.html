@@ -1,0 +1,139 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-09-17 16:47:30
+ * @LastEditTime: 2020-09-22 11:50:26
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \demo\index.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Document</title>
+	<link rel="stylesheet" href="./css/index.css" />
+	<link rel="stylesheet" href="./css/playbackBtn.css" />
+	<link rel="stylesheet" href="./css/preview.css">
+	<script src="./js/hls.js"></script>
+	<script src="./js/jquery.js"></script>
+</head>
+
+<body>
+	<section>
+		<button class="previewBtn">视频预览</button>
+		<button class="playbackBtn">视频回放</button>
+	</section>
+	<main class="preview">
+		<video class="prvideo" id="video" controls></video>
+		<div class="prcontent">
+			<div class="prleft">
+				<h3 class="prh3">平台信息:</h3>
+				<div>
+					<span class="prlefttit">平台取流IP地址：</span>
+					<input class="prleftinput" placeholder="请输入IP地址" id="inputval">
+				</div>
+				<div>
+					<span class="prlefttit">平台端口：</span>
+					<input class="prleftinput" placeholder="请输入端口" id="inputval2">
+				</div>
+			</div>
+			<div class="prcenter">
+				<h3 class="prh3">镜头信息:</h3>
+				<div>
+					<span>镜头IP地址：</span>
+					<input placeholder="请输镜头IP地址" class="inputval">
+				</div>
+				<div>
+					<span>镜头端口：</span>
+					<input placeholder="请输镜头端口号" class="inputval">
+				</div>
+				<div>
+					<span>通道：</span>
+					<input placeholder="请输镜头通道号" class="inputval">
+				</div>
+				<div>
+					<span>码流类型：</span>
+					<select id="streamtype">
+						<option value="1">主码流</option>
+						<option value="2">子码流</option>
+					</select>
+				</div>
+				<div>
+					<span class="label">显示默认码流信息：</span>
+					<input id="isdefaulthint" style="width: 20px" type="checkbox" checked value="0" class="inputval"
+						onchange="changestate()">
+				</div>
+
+				<div>
+					<span class="label">设置码流信息：</span>
+					<input id="ishint" style="width: 20px" type="checkbox" onchange="showHintInfo()"><br>
+					<div id="hintinfodiv" style="display: none">
+						<span class="label">码流提示信息内容：</span>
+						<input id="hintinfo" type="text" class="inputval">
+					</div>
+				</div>
+				<div class="buttonbox">
+					<button onclick="openPreview()">预览</button>
+					<button onclick="closeBut()">关闭</button>
+				</div>
+			</div>
+			<div class="prright">
+				<fieldset>
+					<legend>返回值</legend>
+					<div class="prcontentshow">
+						<!-- <p>asdfasf</p>
+							<p>asdfasf</p>
+							<p>asdfasf</p> -->
+					</div>
+				</fieldset>
+				<button onclick="clear()">清除</button>
+			</div>
+		</div>
+	</main>
+
+	<main class="playback">
+		<video id="playback-video" style="background-color: #ccc; width: 700px; height: 400px" controls></video>
+		<aside class="playback-aside">
+			<div class="playback-information">
+				<h1>平台信息:</h1>
+				<div>
+					平台IP地址：
+					<input type="text" class="playback-ipt" placeholder="请输入IP地址" /></br>
+					平台端口：
+					<input type="text" class="playback-ipt" placeholder="请输入端口号" />
+				</div>
+			</div>
+			<div class="playback-information-second">
+				<h1>镜头信息:</h1>
+				镜头IP地址：<input type="text" class="playback-ipt" placeholder="请输入镜头IP" />
+				<br />
+				镜头端口：<input type="text" placeholder="请输入镜头端口" class="playback-ipt" /><br />
+				通道：<input type="text" placeholder="请输入通道" class="playback-ipt" /><br />
+				码流类型：<select name="" id="playback-select">
+					<option value="1">主码流</option>
+					<option value="2">子码流</option>
+				</select><br />
+				回放方式：<select name="" id="playbacktype">
+					<option value="0">中心回放</option>
+					<option value="1">前端回放</option>
+				</select><br />
+				录像开始时间：<input type="text" class="playback-ipt" placeholder="2020-09-17 20:40:47" /><br />
+				录像结束时间：<input type="text" class="playback-ipt" placeholder="2020-09-17 20:50:47" /><br />
+				<button class="playback-backwatch">回放</button>
+				<button class="playback-backwatch">关闭</button>
+			</div>
+			<div class="backInformation">
+				<fieldset class="playback-fieldset">
+					<legend>返回值</legend>
+				</fieldset>
+			</div>
+		</aside>
+	</main>
+</body>
+<script src="./js/tabChange.js"></script>
+<!-- <script src="./js/playback.js"></script> -->
+<script src="./js/proview.js"></script>
+
+</html>
